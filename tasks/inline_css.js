@@ -14,6 +14,7 @@ module.exports = function(grunt) {
   // creation: http://gruntjs.com/creating-tasks
 
   var juice = require('juice');
+  var he = require('he');
 
   grunt.registerMultiTask('inlinecss', 'Takes an html file with css link and turns inline.  Great for emails.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
@@ -41,6 +42,10 @@ module.exports = function(grunt) {
         if (err) {
           return grunt.log.error(err);
         }
+
+        html = he.decode(html, {
+          'isAttributeValue' : false
+        });
 
         grunt.file.write(f.dest, html);
         grunt.log.writeln('File "' + f.dest + '" created.');

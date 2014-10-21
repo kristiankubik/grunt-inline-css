@@ -2,6 +2,8 @@
 
 > Takes an html file with css link and turns inline. Great for emails. It leverages the amazing [juice](https://github.com/LearnBoost/juice) library.
 
+- modified, return html-entities back to special characters ..
+
 ## Getting Started
 This plugin requires Grunt `~0.4.0`
 
